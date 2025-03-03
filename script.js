@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 document.getElementById('submit-guess').addEventListener('click', () => {
     const guessInput = document.getElementById('guess-input');
-    const guess = guessInput.value.toLowerCase();
+    const guess = guessInput.value.toUpperCase();
     if (guess.length !== 5) {
         alert("Please enter a 5-letter word.");
         return;
@@ -26,9 +26,9 @@ document.getElementById('submit-guess').addEventListener('click', () => {
     for (let i = 0; i < 5; i++) {
         const cell = board.children[currentRow * 5 + i];
         cell.textContent = guess[i];
-        if (guess[i] === answer[i]) {
+        if (guess[i] === answer[i].toUpperCase()) {
             cell.style.backgroundColor = 'green';
-        } else if (answer.includes(guess[i])) {
+        } else if (answer.toUpperCase().includes(guess[i])) {
             cell.style.backgroundColor = 'yellow';
         } else {
             cell.style.backgroundColor = 'gray';
@@ -37,9 +37,9 @@ document.getElementById('submit-guess').addEventListener('click', () => {
 
     currentRow++;
     guessInput.value = '';
-    if (guess === answer) {
+    if (guess === answer.toUpperCase()) {
         alert("Congratulations! You've guessed the word!");
     } else if (currentRow === 6) {
-        alert(`Game over! The word was ${answer}.`);
+        alert(`Game over! The word was ${answer.toUpperCase()}.`);
     }
 }); 

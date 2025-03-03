@@ -8,9 +8,14 @@
 </head>
 <body>
     <div id="game-container">
+        <h1>Abby's Wordle Clone</h1>
         <div id="board"></div>
         <input type="text" id="guess-input" maxlength="5" autofocus>
         <button id="submit-guess">Submit</button>
+        <div id="instructions">
+            <p>Guess the 5-letter word in six tries.</p>
+            <p><span style="color:green;">Green</span>: Correct position, <span style="color:yellow;">Yellow</span>: Wrong position, <span style="color:gray;">Gray</span>: Not in word.</p>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
